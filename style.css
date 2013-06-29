@@ -470,8 +470,8 @@ header {
 }
 header .gravatar {
   overflow: hidden;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
   border-radius: 50%;
@@ -481,7 +481,6 @@ header .gravatar {
 header #brand {
   float: left;
   width: 80%;
-  margin-top: 22px;
 }
 header #brand h1 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

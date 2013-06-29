@@ -108,3 +108,52 @@ function custom_next_post_link($format='%link &raquo;', $link='%title', $in_same
 
 	echo $format;
 }
+
+function category_tree($category, $el="li") {
+	
+	// Example usage: 
+	// category_tree(get_the_category(get_the_UD())
+
+	//# getting the main category of the page
+	$catid=$category[0]->category_parent;
+	if($catid==0){
+	  $catid=$category[0]->cat_ID;
+	}
+
+	//# now letz get the children categories of the main category
+	$categories = get_categories('child_of='.intval($catid)); 					 
+
+	if ($el == "li"):
+		echo '<ul>';
+	endif;
+
+	foreach ($categories as $category) {
+	    //# check if it is a real parent category with subcategories
+	
+	    $category_link = get_category_link(intval($category->cat_ID));
+	    
+            if ($category_link):
+		    if ($category->parent ==$catid):
+			echo '<'.$el; 
+			echo ' class="cat">';
+			echo '<a href="'.$category_link.'">'.$category->cat_name.'</a>';
+			echo '</'.$el.'>';
+			//# here we go, getting the subcategories
+			$subcategories=  get_categories('child_of='.intval($category->cat_ID));
+			foreach ($subcategories as $subcategory) {
+			    echo '<'.$el; 
+			    echo ' class="subcat" style="padding-left:12px">';
+			    $subcategory_link = get_category_link(intval($subcategory->cat_ID));
+			    echo '<a href="'.$category_link.'">'.$subcategory->cat_name.'</a>';
+			    echo '</'.$el.'>';
+			}
+		    endif;
+	    endif;
+
+	}
+
+	if ($el == "li"):
+		echo '</ul>';
+	endif;
+
+}

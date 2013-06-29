@@ -2,11 +2,11 @@
 
 	<article class="post">
 	
-		<h1 class="title">
+		<h2>
 			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 				<?php the_title() ?>
 			</a>
-		</h1>
+		</h2>
 		<div class="post-meta">
 			<?php if( comments_open() ) : ?>
 				<span class="comments-link">

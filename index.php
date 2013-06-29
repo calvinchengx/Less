@@ -51,9 +51,7 @@
 		<nav role="navigation" class="site-navigation main-navigation">
 			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
 		</nav>
-		<div class="search">
-			<?php get_search_form(); ?>
-		</div>
+		<?php get_search_form(); ?>
 	</div><!--/container -->
 		
 </header><!-- #masthead .site-header -->

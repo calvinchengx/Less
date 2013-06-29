@@ -1,37 +1,73 @@
-<?php
-/**
- * The template for displaying Search Results pages.
- *
- * @package WordPress
- * @subpackage Twenty_Ten
- * @since Twenty Ten 1.0
- */
+<html <?php language_attributes(); ?>>
+<head>
+<meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="width=device-width" />
+<title><?php bloginfo('name'); ?> | <?php if( is_home() ) : echo bloginfo( 'description' ); endif; ?><?php wp_title( '', true ); ?></title>
 
-get_header(); ?>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
 
-		<div id="container">
-			<div id="content" role="main">
+<?php wp_head(); ?>
 
-<?php if ( have_posts() ) : ?>
-				<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'twentyten' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
-				<?php
-				/* Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called loop-search.php and that will be used instead.
-				 */
-				 get_template_part( 'loop', 'search' );
-				?>
-<?php else : ?>
-				<div id="post-0" class="post no-results not-found">
-					<h2 class="entry-title"><?php _e( 'Nothing Found', 'twentyten' ); ?></h2>
-					<div class="entry-content">
-						<p><?php _e( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'twentyten' ); ?></p>
-						<?php get_search_form(); ?>
-					</div><!-- .entry-content -->
-				</div><!-- #post-0 -->
-<?php endif; ?>
-			</div><!-- #content -->
-		</div><!-- #container -->
+</head>
 
-<?php get_sidebar(); ?>
-<?php get_footer(); ?>
+<body <?php body_class(); ?>>
+
+<header id="masthead" class="site-header" role="banner">
+	<div class="container">
+		
+		<div class="gravatar">
+			<?php 
+				// grab admin email and their photo
+				$admin_email = get_option('admin_email');
+				echo get_avatar( $admin_email, 100 ); 
+			?>
+		</div><!--/ author -->
+		
+		<div id="brand">
+			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a> &mdash; <span><?php echo get_bloginfo( 'description' ); ?></span></h1>
+		</div><!-- /brand -->
+	
+
+		<nav role="navigation" class="site-navigation main-navigation">
+			<ul class="custom-menu">
+				<li><a href="/say-hello/">Hello right back to you!</a></li>
+				<li><a href="/about/">I love designing and creating usable products</a></li>
+			</ul>
+			
+		</nav><!-- .site-navigation .main-navigation -->
+		
+		<div class="clear"></div>
+	</div><!--/container -->
+
+	<div class="container">
+		<nav role="navigation" class="site-navigation main-navigation">
+			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
+		</nav>
+		<div class="search">
+			<?php get_search_form(); ?>
+		</div>
+	</div><!--/container -->
+		
+</header><!-- #masthead .site-header -->
+
+<div class="container">
+	<div id="primary">
+		<div id="content" role="main">
+
+		    <?php if (have_posts()) : ?>
+			<?php 
+			// This will load/include the file post-search.php 
+			//and result will be displayed as formatted in this file
+			get_template_part( 'post' , 'search'); 
+			?>
+		    <?php else : ?>
+			<p>Sorry, it does not exist !</p>
+		    <?php endif; ?>
+
+		</div>
+	</div> 
+</div><!-- END .container --> 
+
+</body>
+</html>

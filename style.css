@@ -708,3 +708,6 @@ html[xmlns] .clearfix {
     width: 100%;
   }
 }
+.custom-search {
+	float: right;
+}

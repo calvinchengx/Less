@@ -480,7 +480,7 @@ header .gravatar {
 }
 header #brand {
   float: left;
-  width: 60%;
+  width: 50%;
 }
 header #brand h1 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -518,7 +518,7 @@ header nav ul li a {
   font-size: 14px;
 }
 .container {
-  max-width: 720px;
+  max-width: 950px;
   padding: 20px;
   margin: 0 auto;
   position: relative;
@@ -531,18 +531,18 @@ article {
   margin-bottom: 20px;
   border-bottom: 1px solid #dddddd;
 }
-#content .title, article .title {
+.content .title, article .title {
   color: #404040;
   line-height: 56.24px;
   font-size: 38px;
   font-size: 3.8rem;
   font-weight: 700;
 }
-#content .title, article .title a {
+.content .title, article .title a {
   text-decoration: none;
   color: #404040;
 }
-#content .title, article .title a:hover {
+.content .title, article .title a:hover {
   color: #007998;
 }
 article .post-meta {
@@ -694,25 +694,8 @@ html[xmlns] .clearfix {
 * html .clearfix {
   height: 1%;
 }
-/* Media Queries for responsivenessssssss
--------------------------------------------------------------- */
-@media (max-width: 767px) {
-  header {
-    padding: 0;
-  }
-  header .gravatar {
-    float: none;
-  }
-  header hgroup {
-    width: 100%;
-  }
-}
 .sg-wrapper {
     float: right;
-}
-.custom-search {
-    float: right;
-    margin-top: 15px;
 }
 .relevanssi-query-term {
     background-color: yellow;
@@ -733,4 +716,86 @@ html[xmlns] .clearfix {
 .menu-item {
     margin-right: 20px;
 }
+
+.custom-content h1 {
+    padding-bottom: 40px;
+}
+
 /* category tree */
+
+.iframe_wrapper {
+    position: relative;
+}
+
+iframe {
+    height: 1500;
+}
+
+.sg-wrapper input {
+margin-top: 10px;
+}
+
+/* #### Desktops #### */
+@media screen and (min-width: 1024px){
+  /* some CSS here */
+    iframe {
+        width: 100%;
+    }
+    .custom-search {
+    	float: right;
+    	margin-top: 5px;
+    }
+}
+
+/* #### Mobile Phones Portrait #### */
+@media screen and (max-device-width: 480px) and (orientation: portrait){
+  /* some CSS here */
+    html, body, .container {
+        width: 480px;
+    }
+    .sg-wrapper {
+        width: 150px;
+    }
+    .sg-wrapper input {
+	width: 100%;
+	margin-top: 10px;
+    }
+}
+
+/* #### Mobile Phones Landscape #### */
+@media screen and (max-device-width: 640px) and (orientation: landscape){
+  /* some CSS here */
+}
+
+/* #### Mobile Phones Portrait or Landscape #### */
+@media screen and (max-device-width: 640px){
+  /* some CSS here */
+}
+
+/* #### iPhone 4+ Portrait or Landscape #### */
+@media screen and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2){
+  /* some CSS here */
+}
+
+/* #### Tablets Portrait or Landscape #### */
+@media screen and (min-device-width: 768px) and (max-device-width: 1024px){
+  /* some CSS here */
+    header {
+        padding: 0;
+    }
+    header .gravatar {
+        float: right;
+    }
+    header hgroup {
+        width: 100%;
+    }
+    .sg-wraper {
+	float: right;
+    }
+    .sg-wrapper input {
+	margin-top: 10px;
+    }
+    .custom-search {
+	width: 300px;
+    }   
+}

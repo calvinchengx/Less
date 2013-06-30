@@ -4,7 +4,7 @@
 <div class="container">
 
 	<div id="primary">
-		<div id="content" role="main">
+		<div class="content" role="main">
 
 
 <?php
@@ -175,6 +175,27 @@
 		</div><!-- #content .site-content -->
 	</div><!-- #primary .content-area -->
 
+	<div class="clear"></div>
 </div><!-- / container-->
+
+<?php if( is_home() || is_archive() ) : ?>
+<div id="say-hello" class="container">
+
+	<div class="content">
+		<article class="custom-content">
+		<h1 class="title">Hello right back to you! :-)</h1>
+
+		<p>
+		Are you looking for a team of UI/UX designers and hackers to help you create your iPhone, Android or Web App?  If you are, you can find out more about Odeon Consulting Group and get in touch with our kick*ss team!
+		</p>
+
+		<p>
+		If you are simply looking to say hello at a personal level and would like to catch up for lunch, coffee or chit chat, this is the right place! Drop me a note and I will get back to you as soon as I can.
+		</p>
+		</article>
+	</div>
+
+</div>
+<?php endif; ?>
 
 <?php get_footer(); ?>

@@ -5,7 +5,12 @@
 		
 		
 		<div id="brand">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a> &mdash; <span><?php echo get_bloginfo( 'description' ); ?></span></h1>
+			<h1 class="site-title">
+				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
+					<?php bloginfo( 'name' ); ?>
+				</a> 
+			</h1>
+			<span><?php echo get_bloginfo('description'); ?></span>
 			<nav role="navigation" class="site-navigation main-navigation">
 				<ul class="custom-menu">
 					<li><a href="/about/">I love designing and creating usable products</a></li>
